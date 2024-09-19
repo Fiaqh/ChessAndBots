@@ -6,12 +6,12 @@
   Board\
   Playability - postman\
   Replayability - historic data\
-  GUI\
+  GUI
 
 # V1
   API - Bot endpoint, user, state stream, turn info\
   Strong Gui - Replay, saved games\
-  Tests\
+  Tests
 
 # V2
   Bots
