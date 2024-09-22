@@ -1,7 +1,7 @@
 # ChessAndBots
 # V0
   Game Rules logic - Tests, moves, captures, promotion, én passant, guards etc..\
-  State Parsing\
+  State Parsing - FEN notation\
   Pieces\
   Board\
   Playability - postman\
