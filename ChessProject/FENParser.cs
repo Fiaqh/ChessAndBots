@@ -10,16 +10,14 @@ namespace ChessProject
             var pieces = new List<IChessPiece>();
             var splitFenString = fenString.Split(' ');
             var isWhitesTurn = false;
-            var index = 0;
             var board = new Board();
 
             //placement of pieces
             foreach (var character in splitFenString[0])
             {
-                index++;
                 if (System.Char.IsDigit(character))
                 {
-                    pieces.AddRange(new IChessPiece[character]);
+                    pieces.AddRange(new IChessPiece[int.Parse(character.ToString())]);
                 }
                 else if (character == '/')
                 {
@@ -31,7 +29,7 @@ namespace ChessProject
                 }
             }
 
-            Debug.Assert(pieces.Count == 64);
+            board.Positions = pieces.ToArray();            
 
 
             //Turn decider
@@ -62,7 +60,7 @@ namespace ChessProject
 
             // En passant target squares
             var enPassantSquaers = new List<int>();
-            for (var i = 0; i+1 < splitFenString[2].Length; i++)
+            for (var i = 0; i+1 < splitFenString[3].Length; i++)
             {
                 var (file, rank) = (splitFenString[2][i], int.Parse(splitFenString[2][++i].ToString()));
                 enPassantSquaers.Add(AlgebraicNotationToIndex(file, rank));
@@ -70,10 +68,10 @@ namespace ChessProject
             board.ÉnPassantTargetSquares = enPassantSquaers;
 
             //Half move clock
-            board.CurrentHalfMoves = int.Parse(splitFenString[3].ToString());
+            board.CurrentHalfMoves = int.Parse(splitFenString[4].ToString());
 
             //Full moves
-            board.CurrentFullMoves = int.Parse(splitFenString[4].ToString());
+            board.CurrentFullMoves = int.Parse(splitFenString[5].ToString());
 
             return board;
 

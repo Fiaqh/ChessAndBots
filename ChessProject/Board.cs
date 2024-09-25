@@ -6,7 +6,7 @@ namespace ChessProject;
 public class Board
 {
     private const string StartingString = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-    private IChessPiece?[] _positions = new IChessPiece?[64];
+    public IChessPiece?[] Positions = new IChessPiece?[64];
     public bool WhiteHasNextMove { get; set ; }
     public bool WhiteCanCastleQueenSide { get; set ; }
     public bool WhiteCanCastleKingSide { get; set ; }
@@ -17,7 +17,6 @@ public class Board
 
     public List<int> ÉnPassantTargetSquares = new ();
     
-    public IChessPiece?[] Positions => _positions;
 
     public Board(string setupString = StartingString)
     {
@@ -25,15 +24,15 @@ public class Board
     }
     public void Move(GameMove move)
     {
-        Debug.Assert(_positions[move.From] != null);
+        Debug.Assert(Positions[move.From] != null);
 
-        _positions[move.To] = _positions[move.From];
-        _positions[move.From] = null;
+        Positions[move.To] = Positions[move.From];
+        Positions[move.From] = null;
     }
 
     private void SetPosition(string positionsString)
     {
-        _positions = new IChessPiece[64];
+        Positions = new IChessPiece[64];
     }
     
 }

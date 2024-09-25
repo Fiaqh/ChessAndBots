@@ -20,3 +20,10 @@ C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProj
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProject.dll
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\refint\ChessProject.dll
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProject.pdb
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.exe
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.deps.json
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.runtimeconfig.json
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.dll
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.pdb
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProject.genruntimeconfig.cache
+C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ref\ChessProject.dll

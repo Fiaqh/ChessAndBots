@@ -32,6 +32,11 @@ public static class GameJudge
         }
     }
 
+    private static bool CanPawnMove(IChessPiece?[] positions, GameMove move)
+    {
+        throw new NotImplementedException();
+    }
+
     private static bool CanRookMove(IChessPiece?[] positions, GameMove move)
     {
         throw new NotImplementedException();
