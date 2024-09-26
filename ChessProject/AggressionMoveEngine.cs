@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using ChessProject.Pieces;
 
 namespace ChessProject;
@@ -51,7 +50,6 @@ public static class AggressionMoveEngine
         var moveRightPosition = piecePosition + 1;
         while (moveRightPosition % 8 != 0)
         {
-
             if (TryAddCapture(boardState, moveRightPosition, isWhite, moves)) break;
 
             moveRightPosition++;
@@ -59,7 +57,7 @@ public static class AggressionMoveEngine
 
         //Move left
         var moveLeftPosition = piecePosition - 1;
-        while ((moveLeftPosition) % 8 != 7)
+        while (moveLeftPosition % 8 != 7)
         {
             if (TryAddCapture(boardState, moveLeftPosition, isWhite, moves)) break;
 
@@ -73,7 +71,6 @@ public static class AggressionMoveEngine
             if (TryAddCapture(boardState, moveUpPosition, isWhite, moves)) break;
 
             moveUpPosition -= 8;
-
         }
 
         //Move down
@@ -82,16 +79,16 @@ public static class AggressionMoveEngine
         {
             if (TryAddCapture(boardState, moveDownPosition, isWhite, moves)) break;
 
-            
-            moveDownPosition += 8;
 
+            moveDownPosition += 8;
         }
+
         return moves;
     }
 
     private static bool TryAddCapture(BoardState boardState, int piecePosition, bool isWhite, List<int> moves)
     {
-        if(boardState.Positions[piecePosition] != null && boardState.Positions[piecePosition]!.IsWhite() != isWhite)
+        if (boardState.Positions[piecePosition] != null && boardState.Positions[piecePosition]!.IsWhite() != isWhite)
         {
             moves.Add(piecePosition);
             return true;
@@ -118,59 +115,35 @@ public static class AggressionMoveEngine
 
         //Up Right
         var upRight = piecePosition - 15;
-        if (upRight >= 0 && upRight % 8 != 0)
-        {
-            TryAddCapture(boardState, upRight, isWhite, moves);
-        }
+        if (upRight >= 0 && upRight % 8 != 0) TryAddCapture(boardState, upRight, isWhite, moves);
 
         //Up Left
         var upLeft = piecePosition - 17;
-        if (upLeft >= 0 && upLeft % 8 != 7)
-        {
-            TryAddCapture(boardState, upLeft, isWhite, moves);
-        }
+        if (upLeft >= 0 && upLeft % 8 != 7) TryAddCapture(boardState, upLeft, isWhite, moves);
 
         //Down Right
         var downRight = piecePosition + 17;
-        if (downRight < 64 && downRight % 8 != 0)
-        {
-            TryAddCapture(boardState, downRight, isWhite, moves);
-        }
+        if (downRight < 64 && downRight % 8 != 0) TryAddCapture(boardState, downRight, isWhite, moves);
 
         //Down Left
         var downLeft = piecePosition + 15;
-        if (downLeft < 64 && downLeft % 8 != 7)
-        {
-            TryAddCapture(boardState, downLeft, isWhite, moves);
-        }
+        if (downLeft < 64 && downLeft % 8 != 7) TryAddCapture(boardState, downLeft, isWhite, moves);
 
         // Left up
         var leftUp = piecePosition - 10;
-        if (leftUp >= 0 && leftUp % 8 <= piecePosition % 8)
-        {
-            TryAddCapture(boardState, leftUp, isWhite, moves);
-        }
+        if (leftUp >= 0 && leftUp % 8 <= piecePosition % 8) TryAddCapture(boardState, leftUp, isWhite, moves);
 
         //Left down
         var leftDown = piecePosition + 6;
-        if (leftDown < 64 && leftDown % 8 <= piecePosition % 8)
-        {
-            TryAddCapture(boardState, leftDown, isWhite, moves);
-        }
+        if (leftDown < 64 && leftDown % 8 <= piecePosition % 8) TryAddCapture(boardState, leftDown, isWhite, moves);
 
         //Right up
         var rightUp = piecePosition - 6;
-        if (rightUp >= 0 && rightUp % 8 >= piecePosition % 8)
-        {
-            TryAddCapture(boardState, rightUp, isWhite, moves);
-        }
+        if (rightUp >= 0 && rightUp % 8 >= piecePosition % 8) TryAddCapture(boardState, rightUp, isWhite, moves);
 
         //Right down
         var rightDown = piecePosition + 10;
-        if (rightDown < 64 && rightDown % 8 >= piecePosition % 8)
-        {
-            TryAddCapture(boardState, rightDown, isWhite, moves);
-        }
+        if (rightDown < 64 && rightDown % 8 >= piecePosition % 8) TryAddCapture(boardState, rightDown, isWhite, moves);
 
         return moves;
     }
@@ -190,10 +163,10 @@ public static class AggressionMoveEngine
 
         //DiagonalUpRight
         var diagonalUpright = piecePosition - 7;
-        while (diagonalUpright%8 != 0 && diagonalUpright >=0 )
+        while (diagonalUpright % 8 != 0 && diagonalUpright >= 0)
         {
-            if(TryAddCapture(boardState, diagonalUpright, isWhite, moves)) break;
-            diagonalUpright-=7;
+            if (TryAddCapture(boardState, diagonalUpright, isWhite, moves)) break;
+            diagonalUpright -= 7;
         }
 
         var diagonalUpLeft = piecePosition - 9;
@@ -219,6 +192,7 @@ public static class AggressionMoveEngine
 
         return moves;
     }
+
     private static bool IsCheckOnBoard(BoardState boardState, bool isWhiteTurn)
     {
         return true;

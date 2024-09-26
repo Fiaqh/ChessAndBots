@@ -30,22 +30,16 @@ public record BoardState
 
     private bool IsCheckOnBoard(bool isWhiteInCheck)
     {
-        for (int i = 0; i < 64; i++)
-        {
+        for (var i = 0; i < 64; i++)
             if (Positions[i].IsWhite() == !isWhiteInCheck)
-            {
                 AggressionMoveEngine.GetAggressionPieceMoves(this, i);
-            }
-        }
     }
 
     private int GetKingPosition(bool isWhiteKing)
     {
-        for (int i = 0; i < 64; i++)
-        {
+        for (var i = 0; i < 64; i++)
             if (Positions[i] is King king && king.IsWhite() == IsWhiteChecked)
                 return i;
-        }
 
         return -1;
     }
