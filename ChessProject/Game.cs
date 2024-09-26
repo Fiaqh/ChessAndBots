@@ -2,24 +2,24 @@ namespace ChessProject;
 
 public class Game
 {
-    private Board _board;
     private readonly Player _player1;
     private readonly Player _player2;
-    
+    private BoardState _boardState;
 
-    public Game(Board board, Player player1, Player player2)
+
+    public Game(BoardState boardState, Player player1, Player player2)
     {
-        _board = board;
+        _boardState = boardState;
         _player1 = player1;
         _player2 = player2;
     }
 
-    public bool TryDoMove(Board board, GameMove move)
+    public bool TryDoMove(BoardState boardState, GameMove move)
     {
-        if (GameJudge.VerifyMove(board.Positions, move))
+        if (AggressionMoveEngine.GetAggressionPieceMoves(boardState.Positions, move))
         {
             // Do move
-            board.Move(move);
+            boardState.Move(move);
             return true;
         }
 

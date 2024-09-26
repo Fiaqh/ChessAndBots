@@ -5,12 +5,12 @@ namespace ChessProject
 {
     public static class FENParser
     {
-        public static Board FenStringToBoard(string fenString)
+        public static BoardState FenStringToBoard(string fenString)
         {
             var pieces = new List<IChessPiece>();
             var splitFenString = fenString.Split(' ');
             var isWhitesTurn = false;
-            var board = new Board();
+            var board = new BoardState();
 
             //placement of pieces
             foreach (var character in splitFenString[0])
