@@ -16,12 +16,6 @@ public class Game
 
     public bool TryDoMove(BoardState boardState, GameMove move)
     {
-        if (AggressionMoveEngine.GetAggressionPieceMoves(boardState.Positions, move))
-        {
-            // Do move
-            boardState.Move(move);
-            return true;
-        }
 
         return false;
     }

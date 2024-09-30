@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mjolner-code\\ChessAndBots\\ChessProject\\ChessProject.csproj": {}
+    "C:\\Users\\Frede\\Source\\Repos\\ChessAndBots\\ChessProject\\ChessProject.csproj": {}
   },
   "projects": {
-    "C:\\Mjolner-code\\ChessAndBots\\ChessProject\\ChessProject.csproj": {
+    "C:\\Users\\Frede\\Source\\Repos\\ChessAndBots\\ChessProject\\ChessProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mjolner-code\\ChessAndBots\\ChessProject\\ChessProject.csproj",
+        "projectUniqueName": "C:\\Users\\Frede\\Source\\Repos\\ChessAndBots\\ChessProject\\ChessProject.csproj",
         "projectName": "ChessProject",
-        "projectPath": "C:\\Mjolner-code\\ChessAndBots\\ChessProject\\ChessProject.csproj",
-        "packagesPath": "C:\\Users\\MDJ\\.nuget\\packages\\",
-        "outputPath": "C:\\Mjolner-code\\ChessAndBots\\ChessProject\\obj\\",
+        "projectPath": "C:\\Users\\Frede\\Source\\Repos\\ChessAndBots\\ChessProject\\ChessProject.csproj",
+        "packagesPath": "C:\\Users\\Frede\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Frede\\Source\\Repos\\ChessAndBots\\ChessProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MDJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Frede\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +49,20 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "xunit.abstractions": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.9.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
