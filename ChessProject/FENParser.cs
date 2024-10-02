@@ -45,14 +45,17 @@ public static class FENParser
             else if (character == 'q') board.BlackCanCastleQueenSide = true;
 
         // En passant target squares
-        var enPassantSquaers = new List<int>();
-        for (var i = 0; i + 1 < splitFenString[3].Length; i++)
+        var enPassantSquares = new List<int>();
+        if (splitFenString[3][0] != '-')
         {
-            var (file, rank) = (splitFenString[2][i], int.Parse(splitFenString[2][++i].ToString()));
-            enPassantSquaers.Add(AlgebraicNotationToIndex(file, rank));
+            for (var i = 0; i + 1 < splitFenString[3].Length; i++)
+            {
+                var (file, rank) = (splitFenString[3][i], int.Parse(splitFenString[3][++i].ToString()));
+                enPassantSquares.Add(AlgebraicNotationToIndex(file, rank));
+            }
         }
 
-        board.ÉnPassantTargetSquares = enPassantSquaers;
+        board.ÉnPassantTargetSquares = enPassantSquares;
 
         //Half move clock
         board.CurrentHalfMoves = int.Parse(splitFenString[4]);
@@ -63,20 +66,25 @@ public static class FENParser
         return board;
     }
 
+    public static int AlgebraicNotationToIndex(string input)
+    {
+        if(input.Length != 2)
+            return -1;
+
+        return AlgebraicNotationToIndex(input[0], input[1]);
+    }
+
     private static int AlgebraicNotationToIndex(char file, int rank)
     {
-        switch (file)
+        if (file < 'a' || file > 'h' || rank < 1 || rank > 8)
         {
-            case 'a': return 1 * rank - 1;
-            case 'b': return 2 * rank - 1;
-            case 'c': return 3 * rank - 1;
-            case 'd': return 4 * rank - 1;
-            case 'e': return 5 * rank - 1;
-            case 'f': return 6 * rank - 1;
-            case 'g': return 7 * rank - 1;
-            case 'h': return 8 * rank - 1;
-            default: throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException();
         }
+
+        int fileIndex = file - 'a';          // 'a' gives 0, 'b' gives 1, ..., 'h' gives 7
+        int rankIndex = 8 - rank;            // Rank 8 gives 0, rank 7 gives 1, ..., rank 1 gives 7
+
+        return rankIndex * 8 + fileIndex;    // Convert to 0-based index
     }
 
     private static IChessPiece GetChessPieceFromCharacter(char character)
@@ -110,10 +118,5 @@ public static class FENParser
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-
-    private static int GoToNext8(int number)
-    {
-        return 8 - number % 8 + number;
     }
 }

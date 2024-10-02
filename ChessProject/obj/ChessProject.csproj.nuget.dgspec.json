@@ -49,20 +49,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "NUnit": {
-              "target": "Package",
-              "version": "[4.2.2, )"
-            },
-            "xunit.abstractions": {
-              "target": "Package",
-              "version": "[2.0.3, )"
-            },
-            "xunit.extensibility.core": {
-              "target": "Package",
-              "version": "[2.9.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

@@ -13,22 +13,16 @@ public static class AggressionMoveEngine
         {
             case Pawn:
                 return PawnMoves(boardState, piecePosition);
-                break;
             case Rook:
                 return RookMoves(boardState, piecePosition);
-                break;
             case King:
                 return KingMoves(boardState, piecePosition);
-                break;
             case Queen:
                 return QueenMoves(boardState, piecePosition);
-                break;
             case Knight:
                 return KnightMoves(boardState, piecePosition);
-                break;
             case Bishop:
                 return BishopMoves(boardState, piecePosition);
-                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -57,7 +51,7 @@ public static class AggressionMoveEngine
 
         //Move left
         var moveLeftPosition = piecePosition - 1;
-        while (moveLeftPosition % 8 != 7)
+        while (moveLeftPosition % 8 != 7 && moveLeftPosition >= 0)
         {
             if (TryAddCapture(boardState, moveLeftPosition, isWhite, moves)) break;
 
@@ -104,7 +98,34 @@ public static class AggressionMoveEngine
 
     private static List<int> KingMoves(BoardState boardState, int piecePosition)
     {
-        throw new NotImplementedException();
+        var moves = new List<int>();
+        var isWhite = boardState.Positions[piecePosition]!.IsWhite();
+
+        if (piecePosition - 1 >= 0)
+            TryAddCapture(boardState, piecePosition - 1, isWhite, moves);
+
+        if (piecePosition - 9 >= 0)
+            TryAddCapture(boardState, piecePosition - 9, isWhite, moves);
+
+        if (piecePosition - 8 >= 0)
+            TryAddCapture(boardState, piecePosition - 8, isWhite, moves);
+
+        if (piecePosition - 7 >= 0)
+            TryAddCapture(boardState, piecePosition - 7, isWhite, moves);
+
+        if (piecePosition + 1 < 64)
+            TryAddCapture(boardState, piecePosition + 1, isWhite, moves);
+
+        if (piecePosition + 9 < 64)
+            TryAddCapture(boardState, piecePosition + 9, isWhite, moves);
+
+        if (piecePosition + 8 < 64)
+            TryAddCapture(boardState, piecePosition + 8, isWhite, moves);
+
+        if (piecePosition + 7 < 64)
+            TryAddCapture(boardState, piecePosition + 7, isWhite, moves);
+
+        return moves;
     }
 
     private static List<int> KnightMoves(BoardState boardState, int piecePosition)

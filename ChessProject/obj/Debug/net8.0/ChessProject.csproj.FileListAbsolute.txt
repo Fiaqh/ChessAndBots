@@ -27,9 +27,3 @@ C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProj
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\ChessProject.pdb
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProject.genruntimeconfig.cache
 C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ref\ChessProject.dll
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessProject.csproj.AssemblyReference.cache
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\nunit.framework.dll
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\nunit.framework.legacy.dll
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\xunit.abstractions.dll
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\bin\Debug\net8.0\xunit.core.dll
-C:\Users\Frede\Source\Repos\ChessAndBots\ChessProject\obj\Debug\net8.0\ChessPro.980224AD.Up2Date
