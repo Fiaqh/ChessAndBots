@@ -66,13 +66,51 @@ public static class FENParser
         return board;
     }
 
+    public static string BoardToFenString(BoardState board)
+    {
+        var pieces = board.Positions;
+        var fenString = "";
+        var emptyCounter = 0;
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            var piece = pieces[i];
+            if (i != 0 && i % 8 == 0)
+            {
+                if (emptyCounter > 0)
+                {
+                    fenString += emptyCounter;
+                    emptyCounter = 0;
+                }
+                fenString += "/";
+            }
+
+            if (piece == null)
+            {
+                emptyCounter++;
+                continue;
+            }
+            else
+            {
+                if (emptyCounter > 0)
+                {
+                    fenString += emptyCounter;
+                    emptyCounter = 0;
+                }
+                fenString += GetCharFromChessPiece(piece);
+            }
+        }
+        return "";
+    }
+
     public static int AlgebraicNotationToIndex(string input)
     {
-        if(input.Length != 2)
+        if (input.Length != 2)
             return -1;
 
         return AlgebraicNotationToIndex(input[0], input[1]);
     }
+
+
 
     private static int AlgebraicNotationToIndex(char file, int rank)
     {
@@ -117,6 +155,39 @@ public static class FENParser
                 return new King(true);
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private static char GetCharFromChessPiece(IChessPiece piece)
+    {
+        switch (piece)
+        {
+            case Pawn when piece.IsWhite():
+                return 'P';
+            case King when piece.IsWhite():
+                return 'K';
+            case Queen when piece.IsWhite():
+                return 'Q';
+            case Rook when piece.IsWhite():
+                return 'R';
+            case Bishop when piece.IsWhite():
+                return 'B';
+            case Knight when piece.IsWhite():
+                return 'N';
+            case Pawn when !piece.IsWhite():
+                return 'p';
+            case King when !piece.IsWhite():
+                return 'k';
+            case Queen when !piece.IsWhite():
+                return 'q';
+            case Rook when !piece.IsWhite():
+                return 'r';
+            case Bishop when !piece.IsWhite():
+                return 'b';
+            case Knight when !piece.IsWhite():
+                return 'n';
+            default:
+                return '-';
         }
     }
 }
