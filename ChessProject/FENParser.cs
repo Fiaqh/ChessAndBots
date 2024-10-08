@@ -55,7 +55,7 @@ public static class FENParser
             }
         }
 
-        board.ÉnPassantTargetSquares = enPassantSquares;
+        board.EnPassantTargetSquares = enPassantSquares;
 
         //Half move clock
         board.CurrentHalfMoves = int.Parse(splitFenString[4]);
@@ -107,7 +107,7 @@ public static class FENParser
         if (input.Length != 2)
             return -1;
 
-        return AlgebraicNotationToIndex(input[0], input[1]);
+        return AlgebraicNotationToIndex(input[0], int.Parse(input[1].ToString()));
     }
 
 
@@ -123,6 +123,18 @@ public static class FENParser
         int rankIndex = 8 - rank;            // Rank 8 gives 0, rank 7 gives 1, ..., rank 1 gives 7
 
         return rankIndex * 8 + fileIndex;    // Convert to 0-based index
+    }
+
+    public static string IndexToAlgebraicNotation(int index)
+    {
+        if (index < 0 || index > 63)
+            throw new ArgumentOutOfRangeException();
+
+        var file = index % 8;
+        var rank = (index - file) / 8;
+        var fileChar = (char)('a' + file);
+
+        return fileChar + (8-rank).ToString();
     }
 
     private static IChessPiece GetChessPieceFromCharacter(char character)

@@ -78,8 +78,31 @@ namespace ChessProjectTests
             var moves = AggressionMoveEngine.GetAggressionPieceMoves(board, 49);
             var EnPassantMove = FENParser.AlgebraicNotationToIndex("c3");
 
-            Assert.Contains(42, moves);
+            Assert.Contains(EnPassantMove, moves);
 
+        }
+
+        [Theory]
+        [InlineData("a1")]
+        [InlineData("a2")]
+        [InlineData("a3")]
+        [InlineData("a4")]
+        [InlineData("a5")]
+        [InlineData("a6")]
+        [InlineData("a7")]
+        [InlineData("c1")]
+        [InlineData("c2")]
+        [InlineData("c3")]
+        [InlineData("c4")]
+        [InlineData("c5")]
+        [InlineData("c6")]
+        [InlineData("c7")]
+        public void test(string input)
+        {
+            var index = FENParser.AlgebraicNotationToIndex(input);
+            var algebraic = FENParser.IndexToAlgebraicNotation(index);
+            
+            Assert.True(algebraic.Equals(input));
         }
 
     }
