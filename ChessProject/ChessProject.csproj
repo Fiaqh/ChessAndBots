@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Pieces\DarkRook.jpg" />
+      <Resource Include="Pieces\DarkRook.jpg" />
+      <None Remove="Pieces\LightRook.jpg" />
+      <Resource Include="Pieces\LightRook.jpg" />
+      <None Remove="Pieces\LightRook.png" />
+      <Resource Include="Pieces\LightRook.png" />
+      <None Remove="Pieces\DarkRook.png" />
+      <Resource Include="Pieces\DarkRook.png" />
+    </ItemGroup>
 </Project>

@@ -13,4 +13,6 @@ public readonly record struct Bishop : IChessPiece
     {
         return _isWhite;
     }
+
+    public string ImageSource () => _isWhite ? "C:\\Repos\\ChessAndBots\\ChessProject\\Pieces\\LightBishop.jpg" : "C:\\Repos\\ChessAndBots\\ChessProject\\Pieces\\DarkBishop.jpg";
 }

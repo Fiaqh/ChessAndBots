@@ -13,4 +13,7 @@ public readonly record struct Rook : IChessPiece
     {
         return _isWhite;
     }
+    
+    public string ImageSource () => _isWhite ? "C:/Repos/ChessAndBots/ChessProject/Pieces/LightRook.png" : "C:/Repos/ChessAndBots/ChessProject/Pieces/DarkRook.png";
+
 }

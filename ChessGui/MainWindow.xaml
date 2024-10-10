@@ -1,0 +1,12 @@
+﻿<Window x:Class="ChessGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chessboard" Height="650" Width="650">
+    <Grid Name="ChessGrid">
+        <!-- The 8x8 Grid to represent the chessboard -->
+        <UniformGrid Name="Board" Rows="8" Columns="8">
+            <!-- We'll dynamically add rectangles or images in code-behind -->
+        </UniformGrid>
+        
+    </Grid>
+</Window>
